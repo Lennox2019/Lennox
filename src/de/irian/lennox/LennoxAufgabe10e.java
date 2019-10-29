@@ -18,7 +18,12 @@ public class LennoxAufgabe10e {
             }
             plus = GESAMT - punkte * 2;
             for (int k = 0; k < plus; k++) {
-                System.out.print("+");
+                if(k%2==0) {
+                    System.out.print("+");
+                }
+                else{
+                    System.out.print("O");
+                }
             }
             for (int i = 0; i < anzahl; i++) {
                 System.out.print(".");
