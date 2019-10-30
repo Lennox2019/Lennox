@@ -9,7 +9,7 @@ public class LennoxAufgabe3 {
         int alter = 24;
         double Bmi = 0;
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Der der Bmi ist: ");
+        System.out.print("Der Bmi ist: ");
         Bmi = scanner.nextFloat();
         Bmi = gewicht / (groesse * groesse);
         System.out.print("Der Bmi ist: " + Bmi);
