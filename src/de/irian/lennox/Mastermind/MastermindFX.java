@@ -16,6 +16,8 @@ public class MastermindFX extends Application {
 
     private static final int amountFields = 8;
 
+    private static Farbfeld dragDropHolder;
+
     @Override
     public void start(Stage stage) throws Exception {
 
@@ -24,7 +26,7 @@ public class MastermindFX extends Application {
         myGrid.setVgap(0);
 
         // spielfelder
-        for (int i = 0, n = amountFields; i < n; i++) {
+        for (int i = 0; i < amountFields; i++) {
             SpielfeldGrid spielfeld = new SpielfeldGrid();
 
             GridPane.setConstraints(spielfeld, 0, i);
@@ -71,9 +73,15 @@ public class MastermindFX extends Application {
         // an die button einen action listener
         myGrid.add(neuesSpiel, 0, row);
         myGrid.add(beenden, 1 ,row++);
-        Pane root = new VBox(0);
-        root.getChildren().add(myGrid);
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(myGrid));
         stage.show();
+    }
+
+    public static Farbfeld getDragDropHolder() {
+        return dragDropHolder;
+    }
+
+    public static void setDragDropHolder(Farbfeld dragDropHolder) {
+        MastermindFX.dragDropHolder = dragDropHolder;
     }
 }

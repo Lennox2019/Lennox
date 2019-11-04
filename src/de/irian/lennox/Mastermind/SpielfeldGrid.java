@@ -34,7 +34,9 @@ public class SpielfeldGrid extends GridPane {
                     @Override
                     public void handle(MouseDragEvent mouseDragEvent) {
                         Farbfeld source = (Farbfeld) mouseDragEvent.getSource();
-                        farbfeld.setFill(source.getFill());
+                        farbfeld.setFill(MastermindFX.getDragDropHolder().getFill());
+                        System.out.println("bla");
+                        MastermindFX.setDragDropHolder(null);
                     }
                 });
             } else {
@@ -44,6 +46,7 @@ public class SpielfeldGrid extends GridPane {
                     public void handle(MouseEvent mouseEvent) {
                         System.out.println("hier");
                         farbfeld.startFullDrag();
+                        MastermindFX.setDragDropHolder(farbfeld);
                     }
                 });
             }
