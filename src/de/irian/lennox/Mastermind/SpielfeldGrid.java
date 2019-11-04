@@ -1,6 +1,8 @@
 package de.irian.lennox.Mastermind;
 
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -8,7 +10,7 @@ import javafx.scene.shape.Circle;
 public class SpielfeldGrid extends GridPane {
     private static final int amountFields = 4;
 
-    private static final Color[] farben = new Color[]{Color.RED, Color.GREEN, Color.PURPLE, Color.BLUE};
+    private static final Color[] farben = new Color[]{Color.RED, Color.GREEN, Color.ORANGE, Color.BLUE};
 
     private boolean auswahl;
 
@@ -28,8 +30,22 @@ public class SpielfeldGrid extends GridPane {
             Farbfeld farbfeld;
             if (!auswahl) {
                 farbfeld = new Farbfeld(0, 0, 20, Color.YELLOW);
-            } else{
+                farbfeld.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
+                    @Override
+                    public void handle(MouseDragEvent mouseDragEvent) {
+                        Farbfeld source = (Farbfeld) mouseDragEvent.getSource();
+                        farbfeld.setFill(source.getFill());
+                    }
+                });
+            } else {
                 farbfeld = new Farbfeld(0, 0, 20, farben[i]);
+                farbfeld.setOnDragDetected(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        System.out.println("hier");
+                        farbfeld.startFullDrag();
+                    }
+                });
             }
             GridPane.setConstraints(farbfeld, i, 0);
             getChildren().add(farbfeld);

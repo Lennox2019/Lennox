@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 public class Farbfeld extends Circle{
 
-
     public Farbfeld (int centerX, int centerY, int radius, Color color){
         initCircle(centerX, centerY, radius, color);
     }
