@@ -1,7 +1,11 @@
 package de.irian.lennox.Mastermind;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -19,19 +23,54 @@ public class MastermindFX extends Application {
         GridPane myGrid = new GridPane();
         myGrid.setVgap(0);
 
+        // spielfelder
         for (int i = 0, n = amountFields; i < n; i++) {
             SpielfeldGrid spielfeld = new SpielfeldGrid();
 
             GridPane.setConstraints(spielfeld, 0, i);
             myGrid.getChildren().add(spielfeld);
         }
+
         int row = amountFields;
+
+        // Separator
+        Separator sep = new Separator();
+        myGrid.add(sep, 0, row++, 2,1);
+
+        // auswahlfelder
         for (int i = 0, n = 1; i < n; i++) {
             SpielfeldGrid auswahl = new SpielfeldGrid(true);
 
             GridPane.setConstraints(auswahl, 0, row++);
             myGrid.getChildren().add(auswahl);
         }
+
+        // Separator
+        sep = new Separator();
+        myGrid.add(sep, 0, row++, 2,1);
+
+        // menü
+        Button neuesSpiel = new Button("Neues Spiel");
+        neuesSpiel.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println(" starte neues spiel");
+            }
+        });
+
+        Button beenden =new Button ( "Beenden");
+        beenden.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.exit(0);
+            }
+        });
+        // button neues spiel
+        // button beenden
+
+        // an die button einen action listener
+        myGrid.add(neuesSpiel, 0, row);
+        myGrid.add(beenden, 1 ,row++);
         Pane root = new VBox(0);
         root.getChildren().add(myGrid);
         stage.setScene(new Scene(root));
