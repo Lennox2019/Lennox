@@ -1,13 +1,15 @@
 package de.irian.lennox;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.Scanner;
 
 public class Taschenrechner {
     public static void main(String[] args) {
-        double zahl1 = 0;
-        double zahl2 = 0;
+        BigDecimal zahl1 = new BigDecimal("0");
+        BigDecimal zahl2 = new BigDecimal("0");
         Scanner scanner = new Scanner(System.in);
-        double ergebnis = 0;
+        BigDecimal ergebnis = new BigDecimal("0");
         String eingabe = "";
         String plus = "Plus";
         String minus = "Minus";
@@ -28,28 +30,28 @@ public class Taschenrechner {
                 System.out.println("Leider geht die Rechenoption nicht.");
             } else {
                 System.out.println("Erste Zahl bitte:");
-                zahl1 = scanner.nextDouble();
+                zahl1 = scanner.nextBigDecimal();
                 System.out.println("Zweite Zahl bitte:");
-                zahl2 = scanner.nextDouble();
+                zahl2 = scanner.nextBigDecimal();
 
                 if (eingabe.equals(plus)) {
-                    ergebnis = zahl1 + zahl2;
+                    ergebnis = zahl1.add(zahl2);
                 }
                 if (eingabe.equals(minus)) {
-                    ergebnis = zahl1 - zahl2;
+                    ergebnis = zahl1.subtract(zahl2);
                 }
                 if (eingabe.equals(mal)) {
-                    ergebnis = zahl1 * zahl2;
+                    ergebnis = zahl1.multiply(zahl2);
                 }
                 if (eingabe.equals(geteilt)) {
-                    ergebnis = zahl1 / zahl2;
+                    ergebnis = zahl1.divide(zahl2, MathContext.DECIMAL64);
                 }
                 if (eingabe.equals(quadrat)) {
-                    ergebnis = Math.pow(zahl1, zahl2);
+                    ergebnis = zahl1.pow(zahl2.intValue()); // Math.pow(zahl1, zahl2);
                 }
             }
             if (eingabe.equals(wurzel)) {
-                ergebnis = Math.sqrt(zahl1);
+                ergebnis =  zahl1.sqrt(MathContext.DECIMAL64);    //Math.sqrt(zahl1);
             }
             System.out.println("Ergebnis:" + ergebnis);
         }
