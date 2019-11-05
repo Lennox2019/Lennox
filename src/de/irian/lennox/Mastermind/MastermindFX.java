@@ -25,6 +25,8 @@ public class MastermindFX extends Application {
         GridPane myGrid = new GridPane();
         myGrid.setVgap(0);
 
+        Mastermind.generateSecretColors();
+
         // spielfelder
         for (int i = 0; i < amountFields; i++) {
             SpielfeldGrid spielfeld = new SpielfeldGrid();
@@ -57,6 +59,12 @@ public class MastermindFX extends Application {
             @Override
             public void handle(ActionEvent actionEvent) {
                 System.out.println(" starte neues spiel");
+                stage.close();
+                try {
+                    start(new Stage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
