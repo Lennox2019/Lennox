@@ -6,7 +6,9 @@ import javafx.scene.input.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class SpielfeldGrid extends GridPane {
     private static final int amountFields = 4;
@@ -15,6 +17,7 @@ public class SpielfeldGrid extends GridPane {
 
     private boolean auswahl;
     private Resultat resultat = new Resultat();
+    private List<Farbfeld> farbfelder = new ArrayList<>();
 
     Color[] guessedColors = new Color[4];
 
@@ -42,10 +45,9 @@ public class SpielfeldGrid extends GridPane {
                 farbfeld.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
                     @Override
                     public void handle(MouseDragEvent mouseDragEvent) {
-                        Farbfeld source = (Farbfeld) mouseDragEvent.getSource();
                         farbfeld.setFill(MastermindFX.getDragDropHolder().getFill());
-                        System.out.println(counter + ":" + farbfeld.getFill());
                         guessedColors[counter] = (Color) farbfeld.getFill();
+                        farbfelder.add(farbfeld);
 
                         int max = 0;
                         for (int j = 0; j < guessedColors.length; j++) {
@@ -53,6 +55,9 @@ public class SpielfeldGrid extends GridPane {
                                 max++;
 
                                 if(max == 4) {
+                                    for (int l = 0; l < farbfelder.size(); l++) {
+                                        farbfelder.get(l).setDisable(true);
+                                    }
                                     Mastermind.setGuessedColors(Arrays.asList(guessedColors));
 
                                     Color[] result = Mastermind.checkColors();
