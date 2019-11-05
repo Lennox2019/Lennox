@@ -14,7 +14,7 @@ public class SpielfeldGrid extends GridPane {
     private static final Color[] farben = new Color[]{Color.RED, Color.GREEN, Color.ORANGE, Color.BLUE};//, Color.PURPLE, Color.PINK};
 
     private boolean auswahl;
-    private int maxFields = 0;
+    private Resultat resultat = new Resultat();
 
     Color[] guessedColors = new Color[4];
 
@@ -56,8 +56,9 @@ public class SpielfeldGrid extends GridPane {
                                     Mastermind.setGuessedColors(Arrays.asList(guessedColors));
 
                                     Color[] result = Mastermind.checkColors();
-                                    Resultat resultat = new Resultat();
-                                    resultat.setBlackWhite(result);
+                                    if(resultat != null) {
+                                        resultat.setBlackWhite(result);
+                                    }
                                 }
                             }
                         }
@@ -79,7 +80,7 @@ public class SpielfeldGrid extends GridPane {
             getChildren().add(farbfeld);
         }
         if (!auswahl) {
-            Resultat resultat = new Resultat();
+            resultat = new Resultat();
             GridPane.setConstraints(resultat, 4, 0);
             getChildren().add(resultat);
         }

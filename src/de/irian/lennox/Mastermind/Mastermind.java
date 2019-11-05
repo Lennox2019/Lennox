@@ -48,6 +48,15 @@ public class Mastermind {
                 }
             }
         }
+
+        //change positions
+        for(int i=0; i<result.length; i++) {
+            Random random = new Random();
+            int randomPosition = random.nextInt(result.length);
+            Color color = result[i];
+            result[i] = result[randomPosition];
+            result[randomPosition] = color;
+        }
         return result;
     }
 }
