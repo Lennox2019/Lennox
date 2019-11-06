@@ -3,18 +3,18 @@ package de.irian.lennox.Mastermind;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
 
 public class MastermindFX extends Application {
 
-    private static final int amountFields = 12  ;
+    private static final int amountFields = 12;
 
     private static Farbfeld dragDropHolder;
 
@@ -28,6 +28,8 @@ public class MastermindFX extends Application {
         Mastermind.generateSecretColors();
 
         // spielfelder
+
+
         for (int i = 0; i < amountFields; i++) {
             SpielfeldGrid spielfeld = new SpielfeldGrid();
 
@@ -39,7 +41,7 @@ public class MastermindFX extends Application {
 
         // Separator
         Separator sep = new Separator();
-        myGrid.add(sep, 0, row++, 2,1);
+        myGrid.add(sep, 0, row++, 2, 1);
 
         // auswahlfelder
         for (int i = 0, n = 1; i < n; i++) {
@@ -51,7 +53,7 @@ public class MastermindFX extends Application {
 
         // Separator
         sep = new Separator();
-        myGrid.add(sep, 0, row++, 2,1);
+        myGrid.add(sep, 0, row++);
 
         // menü
         Button neuesSpiel = new Button("Neues Spiel");
@@ -68,7 +70,8 @@ public class MastermindFX extends Application {
             }
         });
 
-        Button beenden =new Button ( "Beenden");
+        Button beenden = new Button("Beenden");
+        GridPane.setHalignment(beenden, HPos.RIGHT);
         beenden.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -80,7 +83,7 @@ public class MastermindFX extends Application {
 
         // an die button einen action listener
         myGrid.add(neuesSpiel, 0, row);
-        myGrid.add(beenden, 1 ,row++);
+        myGrid.add(beenden, 0, row);
         stage.setScene(new Scene(myGrid));
         stage.show();
     }

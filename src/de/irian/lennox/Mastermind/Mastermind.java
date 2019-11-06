@@ -20,7 +20,6 @@ public class Mastermind {
             int index = random.nextInt(farben.length);
             randomColor = farben[index];
             Mastermind.secretColors.add(randomColor);
-            //System.out.println(randomColor);
         }
     }
 

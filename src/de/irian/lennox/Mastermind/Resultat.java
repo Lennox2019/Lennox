@@ -3,6 +3,7 @@ package de.irian.lennox.Mastermind;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
@@ -31,7 +32,7 @@ public class Resultat extends GridPane {
         setPadding(new Insets(20, 20, 20, 20));
     }
 
-    public void setBlackWhite(Color[] result) {
+    public void setBlackWhite(Paint[] result) {
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
             if (result[i] == Color.BLACK) {
