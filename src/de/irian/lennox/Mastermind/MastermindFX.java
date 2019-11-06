@@ -9,7 +9,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Separator;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import javax.swing.text.MutableAttributeSet;
 
 
 public class MastermindFX extends Application {
@@ -27,15 +30,16 @@ public class MastermindFX extends Application {
 
         Mastermind.generateSecretColors();
 
+        Mastermind.myGrid = myGrid;
+        Mastermind.stage = stage;
         // spielfelder
 
 
-        for (int i = 0; i < amountFields; i++) {
-            SpielfeldGrid spielfeld = new SpielfeldGrid();
+        SpielfeldGrid spielfeld = new SpielfeldGrid();
 
-            GridPane.setConstraints(spielfeld, 0, i);
-            myGrid.getChildren().add(spielfeld);
-        }
+        GridPane.setConstraints(spielfeld, 0, Mastermind.rowCount.get());
+        myGrid.getChildren().add(spielfeld);
+
 
         int row = amountFields;
 
