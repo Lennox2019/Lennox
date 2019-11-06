@@ -16,7 +16,9 @@ public class Farbfeld extends Circle{
         setCenterX(centerX);
         setCenterY(centerY);
         setRadius(radius);
-        setFill(color);
+        if (color != null) {
+            setFill(color);
+        }
     }
 
 }

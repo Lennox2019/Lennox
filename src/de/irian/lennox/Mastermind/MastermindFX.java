@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 public class MastermindFX extends Application {
 
-    private static final int amountFields = 8;
+    private static final int amountFields = 12  ;
 
     private static Farbfeld dragDropHolder;
 

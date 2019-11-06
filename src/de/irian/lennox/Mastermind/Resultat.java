@@ -34,10 +34,10 @@ public class Resultat extends GridPane {
     public void setBlackWhite(Color[] result) {
         for (int i = 0; i < result.length; i++) {
             System.out.println(result[i]);
-            if(result[i] == Color.BLACK) {
+            if (result[i] == Color.BLACK) {
                 this.farbfelder.get(i).setFill(Color.BLACK);
             }
-            if (result[i] == Color.WHITE){
+            if (result[i] == Color.WHITE) {
                 this.farbfelder.get(i).setFill(Color.WHITE);
             }
         }

@@ -13,7 +13,7 @@ import java.util.List;
 public class SpielfeldGrid extends GridPane {
     private static final int amountFields = 4;
 
-    private static final Color[] farben = new Color[]{Color.RED, Color.GREEN, Color.ORANGE, Color.BLUE};//, Color.PURPLE, Color.PINK};
+    private static final Color[] farben = new Color[]{Color.RED, Color.GREEN, Color.ORANGE, Color.BLUE , Color.PURPLE, Color.PINK};
 
     private boolean auswahl;
     private Resultat resultat = new Resultat();
@@ -34,13 +34,14 @@ public class SpielfeldGrid extends GridPane {
         return farben;
     }
 
-    private void init(){
+    private void init() {
 
         // Setze 4 Farbfelder in einer Reihe
-        for (int i = 0, n = amountFields; i < n; i++) {
-            Farbfeld farbfeld;
-            if (!auswahl) {
-                farbfeld = new Farbfeld(0, 0, 20, Color.YELLOW);
+
+
+        if (!auswahl) {
+            for (int i = 0, n = amountFields; i < n; i++) {
+                Farbfeld farbfeld = new Farbfeld(0, 0, 20, Color.YELLOW);
                 int counter = i;
                 farbfeld.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
                     @Override
@@ -51,17 +52,17 @@ public class SpielfeldGrid extends GridPane {
 
                         int max = 0;
                         for (int j = 0; j < guessedColors.length; j++) {
-                            if (guessedColors[j] != null){
+                            if (guessedColors[j] != null) {
                                 max++;
 
-                                if(max == 4) {
+                                if (max == 4) {
                                     for (int l = 0; l < farbfelder.size(); l++) {
                                         farbfelder.get(l).setDisable(true);
                                     }
                                     Mastermind.setGuessedColors(Arrays.asList(guessedColors));
 
                                     Color[] result = Mastermind.checkColors();
-                                    if(resultat != null) {
+                                    if (resultat != null) {
                                         resultat.setBlackWhite(result);
                                     }
                                 }
@@ -70,20 +71,25 @@ public class SpielfeldGrid extends GridPane {
                         MastermindFX.setDragDropHolder(null);
                     }
                 });
-            } else {
-                farbfeld = new Farbfeld(0, 0, 20, farben[i]);
+                GridPane.setConstraints(farbfeld, i, 0);
+                getChildren().add(farbfeld);
+            }
+        } else {
+            for (int i = 0, n = farben.length; i < n; i++) {
+                Farbfeld farbfeld = new Farbfeld(0, 0, 20, farben[i]);
                 farbfeld.setOnDragDetected(new EventHandler<MouseEvent>() {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
-                        System.out.println("hier");
                         farbfeld.startFullDrag();
                         MastermindFX.setDragDropHolder(farbfeld);
                     }
                 });
+                GridPane.setConstraints(farbfeld, i, 0);
+                getChildren().add(farbfeld);
             }
-            GridPane.setConstraints(farbfeld, i, 0);
-            getChildren().add(farbfeld);
         }
+
+
         if (!auswahl) {
             resultat = new Resultat();
             GridPane.setConstraints(resultat, 4, 0);

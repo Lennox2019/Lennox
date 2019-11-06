@@ -20,7 +20,7 @@ public class Mastermind {
             int index = random.nextInt(farben.length);
             randomColor = farben[index];
             Mastermind.secretColors.add(randomColor);
-            System.out.println(randomColor);
+            //System.out.println(randomColor);
         }
     }
 
@@ -31,20 +31,19 @@ public class Mastermind {
     public static Color[] checkColors() {
         Color[] result = new Color[4];
 
-        for (int i = 0; i < Mastermind.guessedColors.size(); i++) {
+        Set<Color> temp = new HashSet<>(Mastermind.secretColors);
 
+        for (int i = 0; i < Mastermind.guessedColors.size(); i++) {
             if (Mastermind.guessedColors.get(i) == Mastermind.secretColors.get(i)) {
                 result[i] = Color.BLACK;
+                temp.remove(Mastermind.secretColors.get(i));
             }
         }
+
         for (int i = 0; i < result.length; i++) {
-
             if (result[i] != Color.BLACK) {
-
-                for (int j = 0; j < Mastermind.secretColors.size(); j++) {
-                    if (Mastermind.guessedColors.get(i) == Mastermind.secretColors.get(j)) {
-                        result[i] = Color.WHITE;
-                    }
+                if (temp.contains(Mastermind.guessedColors.get(i))){
+                    result[i] = Color.WHITE;
                 }
             }
         }
