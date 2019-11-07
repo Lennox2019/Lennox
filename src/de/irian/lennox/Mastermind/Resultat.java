@@ -7,6 +7,7 @@ import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Resultat extends GridPane {
 
@@ -41,6 +42,8 @@ public class Resultat extends GridPane {
     }
 
     public void setBlackWhite(Paint[] result) {
+        int countBlack = 0;
+        int countWhite = 0;
         RadialGradient black = new RadialGradient(0, 0, 0.5, 0.5, 1, true, CycleMethod.NO_CYCLE, new Stop[]{
                 new Stop(0, Color.BLACK),
                 new Stop(1, Color.WHITE)
@@ -53,14 +56,40 @@ public class Resultat extends GridPane {
 
             System.out.println(result[i]);
             if (result[i] == Color.BLACK) {
-                this.farbfelder.get(i).setFill(black);
+                countBlack++;
             }
 
 
             if (result[i] == Color.WHITE) {
-                this.farbfelder.get(i).setFill(white);
+                countWhite++;
             }
 
+        }
+
+        List<Integer> numbersUsed = new ArrayList<>();
+        Random random = new Random();
+        while (numbersUsed.size() != 4) {
+            int nextInt = random.nextInt(4);
+            if (!numbersUsed.contains(nextInt)) {
+                numbersUsed.add(nextInt);
+            }
+        }
+        System.out.println("white " + countWhite);
+        System.out.println("black " + countBlack);
+        for (int i: numbersUsed){
+            if (countBlack > 0){
+                System.out.println("set black " + countBlack);
+
+                this.farbfelder.get(i).setFill(black);
+                countBlack--;
+                continue;
+            }
+            if (countWhite > 0) {
+                System.out.println("set white " + countWhite);
+
+                this.farbfelder.get(i).setFill(white);
+                countWhite--;
+            }
         }
     }
 }

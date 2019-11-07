@@ -1,22 +1,36 @@
 package de.irian.lennox.Mastermind;
 
 
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
+import javafx.css.Size;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.Shadow;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 
+import javax.swing.plaf.ColorUIResource;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static javafx.scene.paint.Color.*;
 
 public class Mastermind {
     static List<Color> secretColors = new ArrayList<>();
@@ -24,6 +38,7 @@ public class Mastermind {
     public static GridPane myGrid;
     public static Stage stage;
     public static AtomicInteger rowCount = new AtomicInteger(0);
+    public static final boolean showSecretColors = false;
 
     public static void generateSecretColors() {
 
@@ -45,7 +60,7 @@ public class Mastermind {
     public static Color[] checkColors() {
         Color[] result = new Color[4];
 
-        Set<Color> temp = new HashSet<>(Mastermind.secretColors);
+        List<Color> temp = new ArrayList<>(Mastermind.secretColors);
 
         int counter = 0;
 
@@ -62,7 +77,6 @@ public class Mastermind {
             showDialog();
             return result;
         }
-
 
         boolean anotherTry = false;
         for (int i = 0; i < result.length; i++) {
@@ -89,23 +103,45 @@ public class Mastermind {
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.initOwner(stage);
         VBox dialogVbox = new VBox(20);
+
         Text text = new Text("Gewonnen!");
 
-        text.setScaleX(2);
-        text.setScaleY(2);
-        text.setScaleZ(2);
+        dialogVbox.setBackground(new Background(new BackgroundFill(BLACK, null, null)));
+
+        text.setStroke(RED);
+        text.setStrokeWidth(0.2);
+        Effect dropShadow = new DropShadow(15, WHITE);
+        text.setEffect(dropShadow);
+
+        text.setFill(Color.GOLD);
+
+        text.setScaleX(4);
+        text.setScaleY(4);
+        text.setScaleZ(4);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2), text);
+        fadeTransition.setFromValue(3.0);
+        fadeTransition.setToValue(0.0);
+        fadeTransition.setAutoReverse(true);
+        fadeTransition.setCycleCount(Animation.INDEFINITE);
+        fadeTransition.play();
         dialogVbox.setAlignment(Pos.CENTER);
 
         dialogVbox.getChildren().
                 add(text);
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
+        dialogScene.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>
+                () {
+
+            @Override
+            public void handle(KeyEvent t) {
+                if(t.getCode()== KeyCode.ESCAPE)
+                {
+                    Stage sb = (Stage)dialog.getScene().getWindow();//use any one object
+                    sb.close();
+                }
+            }
+        });
         dialog.show();
     }
 }
-
-
-
-
-
-

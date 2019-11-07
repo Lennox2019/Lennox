@@ -1,5 +1,4 @@
 package de.irian.lennox.Mastermind;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

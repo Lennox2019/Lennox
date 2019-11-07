@@ -132,11 +132,13 @@ public class SpielfeldGrid extends GridPane {
             }
 
             // zeige generierte farben an. auskommentieren wenn richtig gespielt wird
-            int i = 0;
-            for (Color color : Mastermind.secretColors) {
-                Farbfeld farbfeld = new Farbfeld(0, 0, 20, color);
-                GridPane.setConstraints(farbfeld, i++, 1);
-                getChildren().add(farbfeld);
+            if (Mastermind.showSecretColors) {
+                int i = 0;
+                for (Color color : Mastermind.secretColors) {
+                    Farbfeld farbfeld = new Farbfeld(0, 0, 20, color);
+                    GridPane.setConstraints(farbfeld, i++, 1);
+                    getChildren().add(farbfeld);
+                }
             }
         }
 
