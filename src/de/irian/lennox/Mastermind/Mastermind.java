@@ -1,6 +1,7 @@
 package de.irian.lennox.Mastermind;
 
 
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -8,6 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -88,6 +90,11 @@ public class Mastermind {
         dialog.initOwner(stage);
         VBox dialogVbox = new VBox(20);
         Text text = new Text("Gewonnen!");
+
+        text.setScaleX(2);
+        text.setScaleY(2);
+        text.setScaleZ(2);
+        dialogVbox.setAlignment(Pos.CENTER);
 
         dialogVbox.getChildren().
                 add(text);

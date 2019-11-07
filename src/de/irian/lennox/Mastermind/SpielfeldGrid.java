@@ -120,8 +120,9 @@ public class SpielfeldGrid extends GridPane {
                     @Override
                     public void handle(MouseEvent mouseEvent) {
                         farbfeld.startFullDrag();
-                        //         Mastermind.stage.getScene().setCursor(getCursor(farbfeld));
-                        //         MastermindFX.setDragDropHolder(farbfeld);
+                        //Mastermind.stage.getScene().setCursor(getCursor(farbfeld));
+                        Mastermind.stage.getScene().setCursor(Cursor.HAND);
+                        MastermindFX.setDragDropHolder(farbfeld);
                     }
                 });
                 //farbfeld.setOnMousePressed(circleOnMousePressedEventHandler);
@@ -131,12 +132,12 @@ public class SpielfeldGrid extends GridPane {
             }
 
             // zeige generierte farben an. auskommentieren wenn richtig gespielt wird
-//            int i = 0;
-//            for (Color color : Mastermind.secretColors) {
-//                Farbfeld farbfeld = new Farbfeld(0, 0, 20, color);
-//                GridPane.setConstraints(farbfeld, i++, 1);
-//                getChildren().add(farbfeld);
-//            }
+            int i = 0;
+            for (Color color : Mastermind.secretColors) {
+                Farbfeld farbfeld = new Farbfeld(0, 0, 20, color);
+                GridPane.setConstraints(farbfeld, i++, 1);
+                getChildren().add(farbfeld);
+            }
         }
 
 

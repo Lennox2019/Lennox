@@ -89,6 +89,7 @@ public class MastermindFX extends Application {
         myGrid.add(neuesSpiel, 0, row);
         myGrid.add(beenden, 0, row);
         stage.setScene(new Scene(myGrid));
+        stage.setResizable(false);
         stage.show();
     }
 
