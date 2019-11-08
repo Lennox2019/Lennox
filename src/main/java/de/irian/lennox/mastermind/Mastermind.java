@@ -1,6 +1,5 @@
 package de.irian.lennox.mastermind;
 
-
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.event.EventHandler;
@@ -29,9 +28,10 @@ public class Mastermind {
     public static GridPane myGrid;
     public static Stage stage;
     public static AtomicInteger rowCount = new AtomicInteger(0);
-    public static final boolean showSecretColors = false;
+    public static final boolean showSecretColors = true;
 
     public static void generateSecretColors() {
+        secretColors = new ArrayList<>();
 
         for (int i = 0; i <= 3; i++) {
             Random random = new Random();
@@ -74,7 +74,7 @@ public class Mastermind {
             if (result[i] != Color.BLACK) {
                 if (temp.contains(Mastermind.guessedColors.get(i))) {
                     result[i] = Color.WHITE;
-                    //temp.remove(Mastermind.guessedColors.get(i));
+                    temp.remove(Mastermind.guessedColors.get(i));
                 }
                 anotherTry = true;
             }

@@ -75,8 +75,8 @@ public class Resultat extends GridPane {
         }
         System.out.println("white " + countWhite);
         System.out.println("black " + countBlack);
-        for (int i: numbersUsed){
-            if (countBlack > 0){
+        for (int i : numbersUsed) {
+            if (countBlack > 0) {
                 System.out.println("set black " + countBlack);
 
                 this.farbfelder.get(i).setFill(black);
