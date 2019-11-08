@@ -6,7 +6,7 @@ public class LennoxAufgabe5 {
             for (int i = 0; i < 16; i++) {
                 if (j < 1) {
                     if (j < 8) {
-                        System.out.print(".");
+                        System.out.print("");
                     } else {
                         System.out.print("+");
                     }
@@ -16,7 +16,7 @@ public class LennoxAufgabe5 {
 
                         System.out.print("+");
                     } else {
-                        System.out.print(".");
+                        System.out.print("");
                     }
                 }
             }

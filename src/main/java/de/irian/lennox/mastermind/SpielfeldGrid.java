@@ -1,12 +1,10 @@
-package de.irian.lennox.Mastermind;
+package de.irian.lennox.mastermind;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.ImageCursor;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.control.Separator;
-import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.*;
 import javafx.scene.layout.Background;
@@ -14,8 +12,6 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.*;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 import java.util.Arrays;

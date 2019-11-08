@@ -12,7 +12,7 @@ public class LennoxAufgabe10e {
 
             punkte = 0;
             for (int i = 0; i < anzahl; i++) {
-                System.out.print(".");
+                System.out.print("");
                 punkte = i + 1;
 
             }
@@ -26,7 +26,7 @@ public class LennoxAufgabe10e {
                 }
             }
             for (int i = 0; i < anzahl; i++) {
-                System.out.print(".");
+                System.out.print("");
             }
             System.out.println();
             anzahl -= 1;
