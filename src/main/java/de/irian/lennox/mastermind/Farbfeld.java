@@ -1,10 +1,7 @@
-package de.irian.lennox.Mastermind;
+package de.irian.lennox.mastermind;
 
-import javafx.application.Application;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.stage.Stage;
 
 public class Farbfeld extends Circle{
 

@@ -1,31 +1,22 @@
-package de.irian.lennox.Mastermind;
+package de.irian.lennox.mastermind;
 
 
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
-import javafx.css.Size;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
-import javafx.scene.effect.Shadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
-import javax.swing.plaf.ColorUIResource;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;

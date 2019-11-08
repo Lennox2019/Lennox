@@ -1,9 +1,8 @@
-package de.irian.lennox.Mastermind;
+package de.irian.lennox.mastermind;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.*;
-import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;

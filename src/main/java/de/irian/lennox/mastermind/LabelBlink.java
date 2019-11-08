@@ -1,4 +1,4 @@
-package de.irian.lennox.Mastermind;
+package de.irian.lennox.mastermind;
 
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;

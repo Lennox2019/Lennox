@@ -11,7 +11,7 @@ public class LennoxAufgabe10d {
             punkte = 0;
 
             for (int i = 0; i < anzahl; i++) {
-                System.out.print(".");
+                System.out.print("");
                 punkte = i+1;
             }
 
