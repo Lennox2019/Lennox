@@ -28,7 +28,7 @@ public class Mastermind {
     public static GridPane myGrid;
     public static Stage stage;
     public static AtomicInteger rowCount = new AtomicInteger(0);
-    public static final boolean showSecretColors = true;
+    public static final boolean showSecretColors = false;
 
     public static void generateSecretColors() {
         secretColors = new ArrayList<>();

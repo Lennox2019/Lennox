@@ -29,12 +29,10 @@ public class MastermindFX extends Application {
         Mastermind.stage = stage;
         // spielfelder
 
+            SpielfeldGrid spielfeld = new SpielfeldGrid();
 
-        SpielfeldGrid spielfeld = new SpielfeldGrid();
-
-        GridPane.setConstraints(spielfeld, 0, Mastermind.rowCount.get());
-        myGrid.getChildren().add(spielfeld);
-
+            GridPane.setConstraints(spielfeld, 0, Mastermind.rowCount.get());
+            myGrid.getChildren().add(spielfeld);
 
         int row = amountFields;
 

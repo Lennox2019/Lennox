@@ -1,5 +1,4 @@
 package de.irian.lennox.mastermind;
-
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
@@ -30,7 +29,6 @@ public class SpielfeldGrid extends GridPane {
     double orgSceneX, orgSceneY;
     double orgTranslateX, orgTranslateY;
 
-
     Color[] guessedColors = new Color[4];
 
     public SpielfeldGrid() {
@@ -52,7 +50,6 @@ public class SpielfeldGrid extends GridPane {
 
         setBackground(new Background(new BackgroundFill(Color.DARKGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
 
-
         if (!auswahl) {
             for (int i = 0, n = amountFields; i < n; i++) {
 
@@ -64,9 +61,6 @@ public class SpielfeldGrid extends GridPane {
 
                 farbfeld.setFill(gradient1);
                 farbfeld.setStroke(Color.BLACK);
-
-                //    Shadow shadow = new Shadow(20, Color.BLACK);
-                //  farbfeld.setEffect(shadow);
 
                 int counter = i;
                 farbfeld.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
@@ -165,7 +159,7 @@ public class SpielfeldGrid extends GridPane {
 //                public void handle(MouseEvent t) {
 //                    orgSceneX = t.getSceneX();
 //                    orgSceneY = t.getSceneY();
-//                    orgTranslateX = ((Circle) (t.getSource())).getTranslateX();
+//   //r/r//r/r/r/r                      orgTranslateX = ((Circle) (t.getSource())).getTranslateX();
 //                    orgTranslateY = ((Circle) (t.getSource())).getTranslateY();
 //                }
 //            };
@@ -184,5 +178,3 @@ public class SpielfeldGrid extends GridPane {
 //                    ((Circle) (t.getSource())).setTranslateY(newTranslateY);
 //                }
 //            };
-//
-//}

@@ -10,7 +10,7 @@ public class HelloWorld {
         String tollertext = ("Hello");
         System.out.println(tollertext);
         int zahl = 23;
-        char nummer = 75;
+        char nummer = 57;
         System.out.println(nummer);
         boolean afalse;
         boolean println = false;

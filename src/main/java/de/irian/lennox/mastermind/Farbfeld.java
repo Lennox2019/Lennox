@@ -6,6 +6,7 @@ import javafx.scene.shape.Circle;
 public class Farbfeld extends Circle{
 
     public Farbfeld (int centerX, int centerY, int radius, Color color){
+
         initCircle(centerX, centerY, radius, color);
     }
 
@@ -17,5 +18,4 @@ public class Farbfeld extends Circle{
             setFill(color);
         }
     }
-
 }
