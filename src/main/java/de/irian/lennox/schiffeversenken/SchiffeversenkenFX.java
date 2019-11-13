@@ -58,7 +58,7 @@ public class SchiffeversenkenFX extends Application {
         });
 
         mainGrid.add(neuesSpiel, 0, 10);
-        mainGrid.add(beenden, 0, 10);
+        mainGrid.add(beenden, 60, 10);
 
         SchiffeversenkenSpielFeld mySchiffeversenkenSpielFeld = new SchiffeversenkenSpielFeld(Color.BLUE);
         mainGrid.add(mySchiffeversenkenSpielFeld,0,1);
