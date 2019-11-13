@@ -4,9 +4,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 
-public class SchiffeFelder extends Rectangle {
+public class SchiffeFeld extends Rectangle {
 
-    public SchiffeFelder(double recX, double rexY, double width, double higth, Color color) {
+    public SchiffeFeld(double recX, double rexY, double width, double higth, Color color) {
 
         initRectangle(recX, rexY, width, higth, color);
     }
@@ -21,9 +21,9 @@ public class SchiffeFelder extends Rectangle {
         }
     }
 
-    public static SchiffeFelder createSchiffeFeld(Color color) {
-        SchiffeFelder schiffeFeld = new SchiffeFelder(20, 20, 20, 20, Color.WHITE);
-        schiffeFeld.setFill(Color.WHITE);
+    public static SchiffeFeld createSchiffeFeld(Color color) {
+        SchiffeFeld schiffeFeld = new SchiffeFeld(20, 20, 20, 20, Color.TRANSPARENT);
+        schiffeFeld.setFill(Color.TRANSPARENT);
         schiffeFeld.setStroke(color);
         return schiffeFeld;
     }

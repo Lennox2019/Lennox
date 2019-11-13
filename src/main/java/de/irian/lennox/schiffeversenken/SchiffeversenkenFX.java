@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.awt.Rectangle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SchiffeversenkenFX extends Application {
     private static final int ammountFields = 20;
@@ -30,6 +32,11 @@ public class SchiffeversenkenFX extends Application {
 
         SchiffeversenkenSpielFeld mySchiffeversenkenSpielFeld = new SchiffeversenkenSpielFeld(Color.BLUE);
         mainGrid.add(mySchiffeversenkenSpielFeld,0,1);
+
+        Schiff schiff = new Schiff();
+        mainGrid.getChildren().add(schiff);
+
+
 
         mainGrid.setHgap(1.5);
 
