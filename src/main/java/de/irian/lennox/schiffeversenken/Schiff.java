@@ -61,13 +61,21 @@ public class Schiff extends GridPane {
                 public void handle(MouseEvent mouseEvent) {
                     schiff.schiffeFeld.startFullDrag();
                     Schiffeversenken.stage.getScene().setCursor(Cursor.HAND);
-                    SchiffeversenkenFX.setDragDropHolder(schiff.schiffeFeld);
+                    SchiffeversenkenFX.setDragDropHolder(schiff);
                 }
             });
             GridPane.setConstraints(schiff.schiffeFeld, 40, i++);
             getChildren().add(schiff.schiffeFeld);
             setVgap(10);
         }
+    }
+
+    public Typ getTyp() {
+        return typ;
+    }
+
+    public SchiffeFeld getSchiffeFeld() {
+        return schiffeFeld;
     }
 }
 

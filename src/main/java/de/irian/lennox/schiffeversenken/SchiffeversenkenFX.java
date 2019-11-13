@@ -17,7 +17,7 @@ public class SchiffeversenkenFX extends Application {
     private static final int ammountFields = 20;
     private static final int rowCount = 20;
     Rectangle fields = new Rectangle();
-    private static SchiffeFeld dragDropHolder;
+    private static Schiff dragDropHolder;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -74,11 +74,11 @@ public class SchiffeversenkenFX extends Application {
         stage.show();
     }
 
-    public static void setDragDropHolder(SchiffeFeld dragDropHolder) {
+    public static void setDragDropHolder(Schiff dragDropHolder) {
         SchiffeversenkenFX.dragDropHolder = dragDropHolder;
     }
 
-    public static SchiffeFeld getDragDropHolder() {
+    public static Schiff getDragDropHolder() {
         return dragDropHolder;
     }
 }

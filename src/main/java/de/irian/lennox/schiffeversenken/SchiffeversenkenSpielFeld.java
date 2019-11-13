@@ -26,8 +26,24 @@ public class SchiffeversenkenSpielFeld extends GridPane {
                 schiffeFeld.setOnMouseDragReleased(new EventHandler<MouseDragEvent>() {
                     @Override
                     public void handle(MouseDragEvent mouseDragEvent) {
-                        schiffeFeld.setFill(SchiffeversenkenFX.getDragDropHolder().getFill());
+                        if(SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.ZWEIER || SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.DREIER || SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.VIERER) {
+                            int anzahlFelder = 0;
+
+                            if (SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.ZWEIER) anzahlFelder = 2;
+                            if (SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.DREIER) anzahlFelder = 3;
+                            if (SchiffeversenkenFX.getDragDropHolder().getTyp() == Typ.VIERER) anzahlFelder = 4;
+
+                            for(int i = 0; i<anzahlFelder; i++) {
+                                double x = (i*20);
+                                schiffeFeld.setX(x);
+                                schiffeFeld.setFill(SchiffeversenkenFX.getDragDropHolder().getSchiffeFeld().getFill());
+                            }
+                        }
+                        else {
+                            schiffeFeld.setFill(SchiffeversenkenFX.getDragDropHolder().getSchiffeFeld().getFill());
+                        }
                     }
+
                 });
                 SchiffeversenkenFX.setDragDropHolder(null);
 
