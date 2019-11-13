@@ -27,4 +27,29 @@ public class SchiffeFeld extends Rectangle {
         schiffeFeld.setStroke(color);
         return schiffeFeld;
     }
+
+    public static SchiffeFeld einserSchiff() {
+        SchiffeFeld schiffeFeld = new SchiffeFeld(20, 20, 20, 20, Color.BLACK);
+        schiffeFeld.setFill(Color.BLACK);
+        schiffeFeld.setStroke(Color.BLACK);
+        return schiffeFeld;
+    }
+    public static SchiffeFeld zweierSchiff() {
+        SchiffeFeld schiffeFeld = new SchiffeFeld(40, 20, 40, 20, Color.BLACK);
+        schiffeFeld.setFill(Color.BLACK);
+        schiffeFeld.setStroke(Color.BLACK);
+        return schiffeFeld;
+    }
+    public static SchiffeFeld dreierSchiff() {
+        SchiffeFeld schiffeFeld = new SchiffeFeld(60, 20, 60, 20, Color.BLACK);
+        schiffeFeld.setFill(Color.BLACK);
+        schiffeFeld.setStroke(Color.BLACK);
+        return schiffeFeld;
+    }
+    public static SchiffeFeld viererSchiffe() {
+        SchiffeFeld schiffeFeld = new SchiffeFeld(80, 20, 80, 20, Color.BLACK);
+        schiffeFeld.setFill(Color.BLACK);
+        schiffeFeld.setStroke(Color.BLACK);
+        return schiffeFeld;
+    }
 }

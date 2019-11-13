@@ -8,8 +8,6 @@ import javafx.scene.paint.Color;
 public class SchiffeversenkenSpielFeld extends GridPane {
     private static final int ammountFields = 20;
     private static final int rowCount = 20;
-    //SchiffeFeld schiffeFeld = new SchiffeFeld(10, 10, 10, 10, Color.BLACK);
-
 
     public SchiffeversenkenSpielFeld(Color color) {
         init(color);
