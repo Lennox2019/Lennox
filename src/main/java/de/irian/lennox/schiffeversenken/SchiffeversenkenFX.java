@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -66,6 +67,7 @@ public class SchiffeversenkenFX extends Application {
         mainGrid.add(beenden, 60, 10);
 
         SchiffeversenkenSpielFeld mySchiffeversenkenSpielFeld = new SchiffeversenkenSpielFeld(Color.BLUE);
+
         mainGrid.add(mySchiffeversenkenSpielFeld, 0, 1);
 
         Schiff schiff = new Schiff();
@@ -82,5 +84,9 @@ public class SchiffeversenkenFX extends Application {
 
     public static void setDragDropHolder(SchiffeFeld dragDropHolder) {
         SchiffeversenkenFX.dragDropHolder = dragDropHolder;
+    }
+
+    public static SchiffeFeld getDragDropHolder() {
+        return dragDropHolder;
     }
 }

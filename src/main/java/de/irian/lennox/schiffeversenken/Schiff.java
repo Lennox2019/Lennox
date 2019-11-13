@@ -4,6 +4,7 @@ import de.irian.lennox.mastermind.Mastermind;
 import de.irian.lennox.mastermind.MastermindFX;
 import javafx.event.EventHandler;
 import javafx.scene.Cursor;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -86,13 +87,6 @@ public class Schiff extends GridPane {
                         SchiffeversenkenFX.setDragDropHolder(schiffeFeld1);
                     }
                 });
-
-
-
-
-
-
-
 
                 GridPane.setConstraints(schiffeFeld1, i++, j++);
                 getChildren().add(schiffeFeld1);
