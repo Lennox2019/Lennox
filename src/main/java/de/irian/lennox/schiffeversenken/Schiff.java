@@ -41,37 +41,42 @@ public class Schiff extends GridPane {
             schiffe.add(schiff);
         }
 
-        schiffeFelder = new ArrayList<>();
-        for (int i = 0; i < anzahlZweier; i++) {
-            for(int j=0; j<2; j++) {
-                schiffeFelder.add(schiffeFeld);
-            }
-            Schiff schiff = new Schiff(Typ.ZWEIER, 0, 0, schiffeFelder);
-            schiffe.add(schiff);
-        }
-
-        schiffeFelder = new ArrayList<>();
-        for (int i = 0; i < anzahlDreier; i++) {
-            for(int j=0; j<3; j++) {
-                schiffeFelder.add(schiffeFeld);
-            }
-            Schiff schiff = new Schiff(Typ.DREIER, 0, 0, schiffeFelder);
-            schiffe.add(schiff);
-        }
-
-        schiffeFelder = new ArrayList<>();
-        for (int i = 0; i < anzahlVierer; i++) {
-            for(int j=0; j<4; j++) {
-                schiffeFelder.add(schiffeFeld);
-            }
-            Schiff schiff = new Schiff(Typ.VIERER, 0, 0, schiffeFelder);
-            schiffe.add(schiff);
-        }
+//        schiffeFelder = new ArrayList<>();
+//        for (int i = 0; i < anzahlZweier; i++) {
+//            for(int j=0; j<2; j++) {
+//                schiffeFelder.add(schiffeFeld);
+//            }
+//            Schiff schiff = new Schiff(Typ.ZWEIER, 0, 0, schiffeFelder);
+//            schiffe.add(schiff);
+//        }
+//
+//        schiffeFelder = new ArrayList<>();
+//        for (int i = 0; i < anzahlDreier; i++) {
+//            for(int j=0; j<3; j++) {
+//                schiffeFelder.add(schiffeFeld);
+//            }
+//            Schiff schiff = new Schiff(Typ.DREIER, 0, 0, schiffeFelder);
+//            schiffe.add(schiff);
+//        }
+//
+//        schiffeFelder = new ArrayList<>();
+//        for (int i = 0; i < anzahlVierer; i++) {
+//            for(int j=0; j<4; j++) {
+//                schiffeFelder.add(schiffeFeld);
+//            }
+//            Schiff schiff = new Schiff(Typ.VIERER, 0, 0, schiffeFelder);
+//            schiffe.add(schiff);
+//        }
 
         int i = 100;
+        int j = 100;
         for(Schiff schiff : schiffe) {
-            GridPane.setConstraints(schiff, i++, 1);
-            getChildren().add(schiff);
+            for(SchiffeFeld schiffeFeld1 : schiff.schiffeFelder) {
+                GridPane.setConstraints(schiffeFeld1, i++, j++);
+                getChildren().add(schiffeFeld1);
+            }
+            i = 0;
+            j = 0;
         }
     }
 }
