@@ -1,5 +1,10 @@
 package de.irian.lennox.schiffeversenken;
 
+import de.irian.lennox.mastermind.Mastermind;
+import de.irian.lennox.mastermind.MastermindFX;
+import javafx.event.EventHandler;
+import javafx.scene.Cursor;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
@@ -70,8 +75,25 @@ public class Schiff extends GridPane {
 
         int i = 100;
         int j = 100;
-        for(Schiff schiff : schiffe) {
-            for(SchiffeFeld schiffeFeld1 : schiff.schiffeFelder) {
+        for (Schiff schiff : schiffe) {
+            for (SchiffeFeld schiffeFeld1 : schiff.schiffeFelder) {
+
+                schiffeFeld1.setOnDragDetected(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        schiffeFeld1.startFullDrag();
+                        Schiffeversenken.stage.getScene().setCursor(Cursor.HAND);
+                        SchiffeversenkenFX.setDragDropHolder(schiffeFeld1);
+                    }
+                });
+
+
+
+
+
+
+
+
                 GridPane.setConstraints(schiffeFeld1, i++, j++);
                 getChildren().add(schiffeFeld1);
             }

@@ -1,14 +1,17 @@
 package de.irian.lennox.schiffeversenken;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Orientation;
 import javafx.geometry.VPos;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -21,17 +24,19 @@ public class SchiffeversenkenFX extends Application {
     private static final int ammountFields = 20;
     private static final int rowCount = 20;
     Rectangle fields = new Rectangle();
+    private static SchiffeFeld dragDropHolder;
 
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Schiffe versenken");
         GridPane mainGrid = new GridPane();
+        Schiffeversenken.stage = stage;
 
         Label yourField = new Label("Dein Feld");
         mainGrid.add(yourField, 0, 0);
 
         Label enemyField = new Label("Gegner Feld");
-        mainGrid.add(enemyField, 60,0);
+        mainGrid.add(enemyField, 60, 0);
 
         Label ships = new Label(("Schiffe"));
         mainGrid.add(ships, 35, 0);
@@ -61,20 +66,21 @@ public class SchiffeversenkenFX extends Application {
         mainGrid.add(beenden, 60, 10);
 
         SchiffeversenkenSpielFeld mySchiffeversenkenSpielFeld = new SchiffeversenkenSpielFeld(Color.BLUE);
-        mainGrid.add(mySchiffeversenkenSpielFeld,0,1);
+        mainGrid.add(mySchiffeversenkenSpielFeld, 0, 1);
 
         Schiff schiff = new Schiff();
         mainGrid.add(schiff, 40, 1);
 
-
-
         mainGrid.setHgap(1.5);
-
         SchiffeversenkenSpielFeld enemySchiffeversenkenSpielFeld = new SchiffeversenkenSpielFeld(Color.GOLD);
         mainGrid.add(enemySchiffeversenkenSpielFeld, 60, 1);
 
-        stage.setScene(new Scene (mainGrid));
+        stage.setScene(new Scene(mainGrid));
         stage.setResizable(true);
         stage.show();
+    }
+
+    public static void setDragDropHolder(SchiffeFeld dragDropHolder) {
+        SchiffeversenkenFX.dragDropHolder = dragDropHolder;
     }
 }
