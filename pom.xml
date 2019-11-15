@@ -25,8 +25,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compile.source>11</maven.compile.source>
-    <maven.compile.target>11</maven.compile.target>
+    <maven.compile.source>8</maven.compile.source>
+    <maven.compile.target>8</maven.compile.target>
   </properties>
 
   <!-- start MasterminFX with "mvn clean javafx:run" -->
